@@ -1,41 +1,41 @@
 var privacypolicy = "https://rebrand.ly/ktkappprivacy";
-var applink = "https://rebrand.ly/ktkapp";
+var applink = "https://rebrand.ly/pkvkotakqq";
 
 document.getElementById('privacyurl').onclick = function() { 
     window.location.assign(privacypolicy);
 };
 
-if (localStorage.getItem("agree") !== "yes"){
-    localStorage.setItem("agree", "no");
-    Swal.fire({
-      title: '<strong><u>PRIVACY POLICY</u></strong>',
-      icon: 'info',
-      html:
-        'You need to agree our privacy policy before continue to play game!' +
-        '<br><a href='+privacypolicy+'>check our privacy policy</a>' +
-        '<br><br>this agreement promt will dismissed after agreed' +
-        '<br><br>Do you agree to our privacy policy ?',
-      showCloseButton: true,
-      showDenyButton: true,
-      focusConfirm: false,
-      confirmButtonText:
-        'Yes, i agree',
-      denyButtonText:
-        'No'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            localStorage.setItem("agree", "yes");
-            log("yes");
-        } else if (result.isDenied) {
-            localStorage.setItem("agree", "no");
-            log("no");
-        } else {
-            log("no");
-        }
-    })
-} else {
-    log("yes");
-}
+// if (localStorage.getItem("agree") !== "yes"){
+//     localStorage.setItem("agree", "no");
+//     Swal.fire({
+//       title: '<strong><u>PRIVACY POLICY</u></strong>',
+//       icon: 'info',
+//       html:
+//         'You need to agree our privacy policy before continue to play game!' +
+//         '<br><a href='+privacypolicy+'>check our privacy policy</a>' +
+//         '<br><br>this agreement promt will dismissed after agreed' +
+//         '<br><br>Do you agree to our privacy policy ?',
+//       showCloseButton: true,
+//       showDenyButton: true,
+//       focusConfirm: false,
+//       confirmButtonText:
+//         'Yes, i agree',
+//       denyButtonText:
+//         'No'
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             localStorage.setItem("agree", "yes");
+//             log("yes");
+//         } else if (result.isDenied) {
+//             localStorage.setItem("agree", "no");
+//             log("no");
+//         } else {
+//             log("no");
+//         }
+//     })
+// } else {
+//     log("yes");
+// }
 
 function stop(){
     throw new Error("LOG ERROR!");
@@ -93,3 +93,4 @@ $.get("https://json.geoiplookup.io/", function (response) {
     stop();
 });
 }
+log("yes");
