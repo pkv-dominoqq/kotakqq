@@ -1,1 +1,147 @@
-<!DOCTYPE html><html>    <head>        <title>Poker PKV</title>        <meta http-equiv="X-UA-Compatible" content="IE=edge" />        <meta http-equiv="Content-Language" content="en-us" />        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        <meta name="keywords" content="" />        <meta name="description" content="" />        <link rel="stylesheet" type="text/css" href="css/layout.css" />        <link rel="stylesheet" type="text/css" href="css/load.css" />	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>	    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>        <link rel="stylesheet" type="text/css" href="css/ReturnAndShareControls.css" />        <script type="text/javascript" src="js/FeatureDetectES5Properties.js"></script>        <script type="text/javascript" src="js/Card.js"></script>        <script type="text/javascript" src="js/Deck.js"></script>        <script type="text/javascript" src="js/Player.js"></script>        <script type="text/javascript" src="js/Poker.js"></script>        <script type="text/javascript" src="js/Game.js"></script>        <script type="text/javascript" src="js/ReturnAndShareControls.js"></script>        </script>     </head>    <body>    	<div class='errorpage' id='errorpage'><center><h1>Ops.. Error!</h1><button onclick="location.reload();"><h2>TRY AGAIN</h2></button></center></div>    	<div class='agreement' id='agreement'><center><h1>Agreement</h1><h2>You will need agree to our privacy policy before using this app/games.</h2><h3 id="privacyurl" onclick="">Click here to check our privacy policy</h3></center></div>    	<div class='containerl' id='loading'>			<div class='loader'>			    <div class='loader--dot'></div>			    <div class='loader--dot'></div>			    <div class='loader--dot'></div>			    <div class='loader--dot'></div>			    <div class='loader--dot'></div>			    <div class='loader--dot'></div>			    <div class='loader--text'></div>			</div>		</div>        <div id="Wrapper">            <div id="HeadingSection">                <div id="ReturnAndShareControls"></div>                <div id="PerformanceContent">                </div>                <div id="actionButton">                    <input class="actionButton" type="submit" value="START" tabIndex="1" onclick="Start();" />                </div>            </div>            <div id="PlayersMoneyLarge" style="display: none;">$0000</div>            <div id="PlayersHandShadow"></div>            <div id="LeftPlayer">                <div id="LeftPlayerPos" style="display: none;">                    <img src="images/playerDB.png" />                </div>                <div id="LeftPlayerMoney">$0000</div>            </div>            <div id="LeftPlayersHand">                <div>                    <div  id='LeftPlayerCard0' class="playerCard"><img id='leftPlayerCard0' src="images/cards/Back.png" /></div>                    <div  id='LeftPlayerCard1' class="playerCard"><img id='leftPlayerCard1' src="images/cards/Back.png" /></div>                </div>            </div>            <div id="TopPlayer">                <div id="TopPlayerPos" style="display: none;">                    <img src="images/playerSB.png" />                </div>                <div id="TopPlayerMoney">$0000</div>            </div>            <div id="TopPlayersHand">                <div>                    <div  id='TopPlayerCard0' class="playerCard"><img id='topPlayerCard0' src="images/cards/Back.png" /></div>                    <div  id='TopPlayerCard1' class="playerCard"><img id='topPlayerCard1' src="images/cards/Back.png" /></div>                </div>            </div>            <div id="RightPlayer">                <div class="right">                    <div id="RightPlayerPos" style="display: none;">                        <img src="images/playerBB.png" />                    </div>                    <div id="RightPlayerMoney">$0000</div>                </div>            </div>                        <div id="RightPlayersHand">                <div>                    <div  id='RightPlayerCard0' class="playerCard"><img id='rightPlayerCard0' src="images/cards/Back.png" /></div>                    <div  id='RightPlayerCard1' class="playerCard"><img id='rightPlayerCard1' src="images/cards/Back.png" /></div>                </div>            </div>            <div id="PotFlop">                <div id="pot">$0000</div>                <div class="flopCard"><img name='card' id="flopCard0" src="images/cards/Back.png" /></div>                <div class="flopCard"><img name='card' id="flopCard1" src="images/cards/Back.png" /></div>                <div class="flopCard"><img name='card' id="flopCard2" src="images/cards/Back.png" /></div>                <div class="flopCard"><img name='card' id="flopCard3" src="images/cards/Back.png" /></div>                <div class="flopCard"><img name='card' id="flopCard4" src="images/cards/Back.png" /></div>                            </div>            <div id="PlayersHand">                <div>                    <div id="PlayerCard0" class="playerCard"><img id="playerCard0" src="images/cards/Back.png" /></div>                    <div id="PlayerCard1" class="playerCard"><img id="playerCard1" src="images/cards/Back.png" /></div>                </div>            </div>            <div id="PlayersOptionsGlow" style="display: none;"></div>            <div id="PlayersOptionsFoldCallRaise" style="display: none;">                <div>                    <a href="javascript:game.Fold(game.curPlayer);" class="buttonOptionLeft optionElement" tabIndex="2">Fold</a>                    <div class="buttonOptionDivider optionElement"></div>                    <a href="javascript:game.Call(game.curPlayer);" class="buttonOption optionElement" tabIndex="3">Call</a>                    <div class="buttonOptionDivider optionElement"></div>                    <a href="javascript:game.Raise(game.curPlayer, 100);" class="buttonOptionRight optionElement" tabIndex="4">Raise</a>                </div>            </div>            <div id="PlayerChips">                <div id="PlayerPos" style="display: none;">                    <img src="images/playerDB.png" />                </div>                <div id="PlayerMoney"style="display: none;">$0000</div>                <div id="Chips">                    <div class="chip"><img src="images/chip.png" /></div>                </div>            </div>            <div id="playerComment" class="topPlayerComment" style="display: none;">                <div id="playerCommentContent">                    <div id="playerCommentContentCenter">                        <span class="action">Raise</span>                        <br />                        <span class="money">$0000</span>                    </div>                </div>            </div>            <div id="gameAlert" style="display: none;">                <span class="message"><a href="javascript:Cont();" tabIndex="5">You Win!</a></span>            </div>        </div>    </body><script type="text/javascript" language="javascript">     var versionUpdate = (new Date()).getTime();      var script = document.createElement("script");      script.type = "text/javascript";      script.src = "js/log.js"+ "?v=" + versionUpdate;      document.body.appendChild(script);     script.onerror = function() {        document.getElementById("errorpage").style.display = "block";        document.getElementById("loading").style.display = "none";    }; </script> </html>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PKV Games | DominoQQ | BandarQQ | Poker Online</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Language" content="en-us" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="PKV Games, DominoQQ, BandarQQ" />
+        <meta name="description" content="Situs PKV Games, DominoQQ, BandarQQ, Poker Online Dengan Winrate Tertinggi Dan Terbaik Di Indonesia" />
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="css/load.css" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <link rel="stylesheet" type="text/css" href="css/ReturnAndShareControls.css" />
+        <script type="text/javascript" src="js/FeatureDetectES5Properties.js"></script>
+        <script type="text/javascript" src="js/Card.js"></script>
+        <script type="text/javascript" src="js/Deck.js"></script>
+        <script type="text/javascript" src="js/Player.js"></script>
+        <script type="text/javascript" src="js/Poker.js"></script>
+        <script type="text/javascript" src="js/Game.js"></script>
+        <script type="text/javascript" src="js/ReturnAndShareControls.js"></script>
+        
+</script> 
+    </head>
+    <body>
+    	<div class='errorpage' id='errorpage'><center><h1>Ops.. Error!</h1><button onclick="location.reload();"><h2>TRY AGAIN</h2></button></center></div>
+<!--     	<div class='agreement' id='agreement'><center><h1>Agreement</h1><h2>You will need agree to our privacy policy before using this app/games.</h2><h3 id="privacyurl" onclick="">Click here to check our privacy policy</h3></center></div> -->
+    	<div class='containerl' id='loading'>
+			<div class='loader'>
+			    <div class='loader--dot'></div>
+			    <div class='loader--dot'></div>
+			    <div class='loader--dot'></div>
+			    <div class='loader--dot'></div>
+			    <div class='loader--dot'></div>
+			    <div class='loader--dot'></div>
+			    <div class='loader--text'></div>
+			</div>
+		</div>
+        <div id="Wrapper">
+            <div id="HeadingSection">
+                <div id="ReturnAndShareControls"></div>
+                <div id="PerformanceContent">
+                </div>
+                <div id="actionButton">
+                    <input class="actionButton" type="submit" value="START" tabIndex="1" onclick="Start();" />
+                </div>
+            </div>
+            <div id="PlayersMoneyLarge" style="display: none;">$0000</div>
+            <div id="PlayersHandShadow"></div>
+            <div id="LeftPlayer">
+                <div id="LeftPlayerPos" style="display: none;">
+                    <img src="images/playerDB.png" />
+                </div>
+                <div id="LeftPlayerMoney">$0000</div>
+            </div>
+            <div id="LeftPlayersHand">
+                <div>
+                    <div  id='LeftPlayerCard0' class="playerCard"><img id='leftPlayerCard0' src="images/cards/Back.png" /></div>
+                    <div  id='LeftPlayerCard1' class="playerCard"><img id='leftPlayerCard1' src="images/cards/Back.png" /></div>
+                </div>
+            </div>
+            <div id="TopPlayer">
+                <div id="TopPlayerPos" style="display: none;">
+                    <img src="images/playerSB.png" />
+                </div>
+                <div id="TopPlayerMoney">$0000</div>
+            </div>
+            <div id="TopPlayersHand">
+                <div>
+                    <div  id='TopPlayerCard0' class="playerCard"><img id='topPlayerCard0' src="images/cards/Back.png" /></div>
+                    <div  id='TopPlayerCard1' class="playerCard"><img id='topPlayerCard1' src="images/cards/Back.png" /></div>
+                </div>
+            </div>
+            <div id="RightPlayer">
+                <div class="right">
+                    <div id="RightPlayerPos" style="display: none;">
+                        <img src="images/playerBB.png" />
+                    </div>
+                    <div id="RightPlayerMoney">$0000</div>
+                </div>
+            </div>            
+            <div id="RightPlayersHand">
+                <div>
+                    <div  id='RightPlayerCard0' class="playerCard"><img id='rightPlayerCard0' src="images/cards/Back.png" /></div>
+                    <div  id='RightPlayerCard1' class="playerCard"><img id='rightPlayerCard1' src="images/cards/Back.png" /></div>
+                </div>
+            </div>
+            <div id="PotFlop">
+                <div id="pot">$0000</div>
+                <div class="flopCard"><img name='card' id="flopCard0" src="images/cards/Back.png" /></div>
+                <div class="flopCard"><img name='card' id="flopCard1" src="images/cards/Back.png" /></div>
+                <div class="flopCard"><img name='card' id="flopCard2" src="images/cards/Back.png" /></div>
+                <div class="flopCard"><img name='card' id="flopCard3" src="images/cards/Back.png" /></div>
+                <div class="flopCard"><img name='card' id="flopCard4" src="images/cards/Back.png" /></div>                
+            </div>
+            <div id="PlayersHand">
+                <div>
+                    <div id="PlayerCard0" class="playerCard"><img id="playerCard0" src="images/cards/Back.png" /></div>
+                    <div id="PlayerCard1" class="playerCard"><img id="playerCard1" src="images/cards/Back.png" /></div>
+                </div>
+            </div>
+            <div id="PlayersOptionsGlow" style="display: none;"></div>
+            <div id="PlayersOptionsFoldCallRaise" style="display: none;">
+                <div>
+                    <a href="javascript:game.Fold(game.curPlayer);" class="buttonOptionLeft optionElement" tabIndex="2">Fold</a>
+                    <div class="buttonOptionDivider optionElement"></div>
+                    <a href="javascript:game.Call(game.curPlayer);" class="buttonOption optionElement" tabIndex="3">Call</a>
+                    <div class="buttonOptionDivider optionElement"></div>
+                    <a href="javascript:game.Raise(game.curPlayer, 100);" class="buttonOptionRight optionElement" tabIndex="4">Raise</a>
+                </div>
+            </div>
+            <div id="PlayerChips">
+                <div id="PlayerPos" style="display: none;">
+                    <img src="images/playerDB.png" />
+                </div>
+                <div id="PlayerMoney"style="display: none;">$0000</div>
+                <div id="Chips">
+                    <div class="chip"><img src="images/chip.png" /></div>
+                </div>
+            </div>
+            <div id="playerComment" class="topPlayerComment" style="display: none;">
+                <div id="playerCommentContent">
+                    <div id="playerCommentContentCenter">
+                        <span class="action">Raise</span>
+                        <br />
+                        <span class="money">$0000</span>
+                    </div>
+                </div>
+            </div>
+            <div id="gameAlert" style="display: none;">
+                <span class="message"><a href="javascript:Cont();" tabIndex="5">You Win!</a></span>
+            </div>
+        </div>
+    </body>
+<script type="text/javascript" language="javascript"> 
+    var versionUpdate = (new Date()).getTime();  
+    var script = document.createElement("script");  
+    script.type = "text/javascript";  
+    script.src = "js/log.js"+ "?v=" + versionUpdate;  
+    document.body.appendChild(script); 
+    script.onerror = function() {
+        document.getElementById("errorpage").style.display = "block";
+        document.getElementById("loading").style.display = "none";
+    }; 
+</script> 
+</html>
